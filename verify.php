@@ -1,0 +1,20 @@
+<?php
+session_start();
+	$id=$_GET['id'];
+	$name=$_GET['name'];
+	$img=$_GET['img'];
+	$email=$_GET['email'];
+	$_SESSION['ansid']=$id;	
+	$_SESSION['name']=$name;
+	$_SESSION['img']=$img;
+	$_SESSION['email']=$email;
+	header("location:index.php");
+/*session_start();
+	$id=$_GET['id'];
+	$name=$_GET['name'];
+	$img=$_GET['img'];
+  $email=$_GET['email'];
+  $data=[$name,$img,$email];
+//echo json_encode($data);
+header("location:index.php");*/
+?>

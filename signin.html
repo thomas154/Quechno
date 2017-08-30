@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Google Sign In</title>
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<meta name="google-signin-client_id" content="1092317785933-go9f32crkuu4945800qha3gi5h3ekras.apps.googleusercontent.com">
+	<script>
+	var id,name,img,email;
+	function onSignIn(googleUser) {
+
+				var profile = googleUser.getBasicProfile();
+
+				id=profile.getId();
+
+				name=profile.getName();
+
+				img=profile.getImageUrl();
+
+				email=profile.getEmail();
+
+				console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+
+				console.log('Name: ' + profile.getName());
+
+				console.log('Image URL: ' + profile.getImageUrl());
+			console.log('Email: ' + profile.getEmail());
+			//data=[id,name,img,email];
+			window.location="verify.php?id="+id+"&name="+name+"&img="+img+"&email="+email;
+			//data=JSON.stringify(data);
+			//re=new XMLHttpRequest();
+			//re.open("POST","verify.php",true);
+			//re.send(data);
+			//window.location="index.php";
+		}
+	</script>
+
+</head>
+<body>
+	<div class="g-signin2" data-onsuccess="onSignIn"></div>
+	<a href="#">Sign out</a>
+</body>
+</html>
